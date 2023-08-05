@@ -5,13 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bears Night Website</title>
   <style>
+    /* Common styles for both mobile and PC */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Courier New', monospace;
-      overflow: hidden;
-      background-color: #000;
+      background-color: #111;
       color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 10px;
+        padding: 20px;
+        max-width: none;
+      }
+      .background {
+        display: none;
+      }
+      .mobile-video {
+        display: block;
+      }
+    }
+
+    @media (min-width: 601px) {
+      .container {
+        margin: 20px auto;
+        padding: 40px;
+        max-width: 800px;
+      }
+      .background {
+        display: block;
+      }
+      .mobile-video {
+        display: none;
+      }
     }
     .background {
       position: fixed;
@@ -21,6 +49,7 @@
       height: 100%;
       z-index: -1;
       animation: bgAnimation 60s linear infinite alternate;
+      filter: brightness(70%) contrast(110%);
     }
     @keyframes bgAnimation {
       0% { transform: scale(1.02); }
@@ -31,9 +60,9 @@
       max-width: 800px;
       margin: 20px auto;
       padding: 40px;
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.9);
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
       z-index: 1;
     }
     header {
@@ -96,7 +125,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: radial-gradient(ellipse, rgba(0,0,0,0.3) 5%, rgba(0,0,0,0.9) 95%);
+      background-image: radial-gradient(ellipse, rgba(0,0,0,0.6) 5%, rgba(0,0,0,0.95) 95%);
       pointer-events: none;
       z-index: -1;
     }
@@ -173,7 +202,7 @@
       <button class="language-button" onclick="switchToLanguage('ja')">日本語</button>
     </div>
     <div class="video-text">THE TRAILER</div>
-    <h1 class="title">Welcome to the Secret WebSite</h1>
+    <h1 class="title">Welcome to the Bears Night</h1>
     <p class="subtitle">Discover the dark things that will confront you</p>
   </header>
   <div class="container">
