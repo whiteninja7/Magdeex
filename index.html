@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bears Night Website</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      background-color: #000;
+      color: #fff;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      animation: bgAnimation 60s linear infinite alternate;
+    }
+    @keyframes bgAnimation {
+      0% { transform: scale(1.02); }
+      100% { transform: scale(1); }
+    }
+    .container {
+      position: relative;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      z-index: 1;
+    }
+    .title {
+      text-align: center;
+      margin: 0;
+      font-size: 48px;
+      letter-spacing: 2px;
+      color: #f44336;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 20px;
+      margin: 10px 0;
+    }
+    .about {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .download-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #8b0000;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .download-link:hover {
+      background-color: #b30000;
+    }
+    .floating {
+      animation: floatAnimation 4s ease-in-out infinite;
+    }
+    @keyframes floatAnimation {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+    .ghost {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-image: url('ghost.png');
+      background-size: cover;
+      animation: floatAnimation 4s ease-in-out infinite alternate;
+      mix-blend-mode: luminosity;
+    }
+    .shadows {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse, rgba(0,0,0,0.3) 5%, rgba(0,0,0,0.9) 95%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      z-index: 1;
+    }
+    .youtube-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff0000;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+    .youtube-button:hover {
+      background-color: #cc0000;
+    }
+    .language-buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .language-button {
+      margin: 0 10px;
+      padding: 5px 20px;
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid #666;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .language-button:hover {
+      background-color: #333;
+      border-color: #333;
+      transform: scale(1.05);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .horror-effect {
+      animation: horrorEffect 4s infinite alternate;
+    }
+    @keyframes horrorEffect {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="shadows"></div>
+  <video autoplay loop muted playsinline class="background">
+    <source src="main_trailer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <video autoplay loop muted playsinline class="background mobile-video">
+    <source src="mobile_trailer.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <header>
+    <div class="language-buttons">
+      <button class="language-button" onclick="switchToLanguage('en')">English</button>
+      <button class="language-button" onclick="switchToLanguage('ar')">العربية</button>
+      <button class="language-button" onclick="switchToLanguage('fr')">Français</button>
+      <button class="language-button" onclick="switchToLanguage('ja')">日本語</button>
+    </div>
+    <div class="video-text">THE TRAILER</div>
+    <h1 class="title">Welcome to the Bears Night</h1>
+    <p class="subtitle">Discover the dark things that will confront you</p>
+  </header>
+  <div class="container">
+    <section class="about">
+      <h2 class="horror-effect" style="color: #f44336;">About the Game</h2>
+      <p id="about-text" class="horror-effect">You are an investigator, and the government of holding one of the serious cases decided to increase the salary, but the case turned from an investigation into a survival, and you have to survive for 6 hours with the purple man or a phone. And your attempt to prevent strange creatures from killing you or catching you. Note: The game contains words that are not suitable for children.</p>
+    </section>
+    <a class="download-link horror-effect" href="404_Page">Download the Horror</a>
+  </div>
+  <footer>
+    <p style="font-size: 18px;">&copy; 2023 Bears Night Game. All rights reserved.</p>
+    <a class="youtube-button horror-effect" href="https://www.youtube.com/@Magdeex.m">Visit Our YouTube Channel</a>
+  </footer>
+  <div class="ghost"></div>
+</body>
+<script>
+  function switchToLanguage(language) {
+    var aboutText = document.getElementById('about-text');
+    var titleElement = document.querySelector('.title');
+
+    if (language === 'en') {
+      aboutText.textContent = "You are an investigator, and the government of holding one of the serious cases decided to increase the salary, but the case turned from an investigation into a survival, and you have to survive for 6 hours with the purple man or a phone. And your attempt to prevent strange creatures from killing you or catching you. Note: The game contains words that are not suitable for children.";
+      titleElement.classList.remove('arabic-font');
+    } else if (language === 'ar') {
+      aboutText.textContent = "انت محقق و قررت حكومة  ممسك احد قضاية الخطيرة لزيادة الراتب تقريبا و لاكن تحولت القضية من تحقيق الي نجاة وعليك نجاة مدة 6 ساعات مع رجل البنفسجي او هاتف و محاولتك بمنع مخلوقات غريبة بتقتلك او إمساك بك. ملاحظة: اللعبة تحتوي على ألفاض غير لأق للأطفال";
+      titleElement.classList.add('arabic-font');
+    } else if (language === 'fr') {
+      aboutText.textContent = "[Translated about me text in French]";
+      titleElement.classList.remove('arabic-font');
+    } else if (language === 'ja') {
+      aboutText.textContent = "あなたは捜査官で、重大な事件を抱えている政府は給料の増額を決定しましたが、事件は捜査から生存に変わり、紫の男か電話で6時間生き延びなければなりません。そして、奇妙な生き物があなたを殺したり捕まえたりするのを防ごうとする試み。注意: ゲームにはお子様にふさわしくない言葉が含まれています";
+      titleElement.classList.remove('arabic-font');
+    }
+  }
+
+  var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  var mainTrailer = document.querySelector('.background');
+  var mobileTrailer = document.querySelector('.mobile-video');
+
+  if (isMobile) {
+    mainTrailer.style.display = 'none';
+    mobileTrailer.style.display = 'block';
+  } else {
+    mainTrailer.style.display = 'block';
+    mobileTrailer.style.display = 'none';
+  }
+</script>
+</html>
